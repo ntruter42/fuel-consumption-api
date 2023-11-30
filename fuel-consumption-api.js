@@ -2,52 +2,55 @@
 
 export default function FuelConsumptionAPI(fuelConsumption) {
 
-    async function addVehicle(req, res) {
-        const {description, regNumber} = req.body;
-        console.log(req.body);
+	async function addVehicle(req, res) {
 
-        const result  = await fuelConsumption.addVehicle({description, regNumber});
-        res.json(result);
-    }
+		const { description, regNumber } = req.body;
+		console.log(req.body);
 
-    async function vehicles(req, res) {
+		const result = await fuelConsumption.addVehicle({ description, regNumber });
+		res.json(result);
 
-        const vehicles = await fuelConsumption.vehicles()
-        res.json({
-            status: "success",
-            data: vehicles
-        });
+	}
 
-    }
+	async function vehicles(req, res) {
 
-    async function vehicle(req, res) {
+		const vehicles = await fuelConsumption.vehicles();
+		res.json({
+			status: "success",
+			data: vehicles
+		});
 
-        const {id} = req.query;
+	}
 
-        const vehicle = await fuelConsumption.vehicle(id)
-        res.json({
-            status: "success",
-            data: vehicle
-        });
-    }
+	async function vehicle(req, res) {
 
-    async function refuel(req, res) {
-        
-        const { vehicleId, liters, amount, distance, filledUp } = req.body;
-        console.log(req.body);
-        
-        const status = await fuelConsumption.refuel(vehicleId, liters, amount, distance, filledUp)
-        res.json(status);
+		const { id } = req.query;
 
-    }
+		const vehicle = await fuelConsumption.vehicle(id);
+		res.json({
+			status: "success",
+			data: vehicle
+		});
+
+	}
+
+	async function refuel(req, res) {
+
+		const { vehicleId, liters, amount, distance, filledUp } = req.body;
+		console.log(req.body);
+
+		const status = await fuelConsumption.refuel(vehicleId, liters, amount, distance, filledUp);
+		res.json(status);
+
+	}
 
 
 
-    return {
-        addVehicle,
-        vehicle,
-        vehicles,
-        refuel
-    }
+	return {
+		addVehicle,
+		vehicle,
+		vehicles,
+		refuel
+	}
 
 }

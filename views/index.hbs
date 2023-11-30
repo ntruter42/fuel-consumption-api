@@ -1,3 +1,28 @@
-<div class="view">
-	<h1>{{title}}</h1>
+<div class="flex col middle xl-gap xl-pad view">
+
+
+	<div class="flex col gap middle">
+
+		<h1>Vehicle Consumption</h1>
+
+		<table>
+			<tr>
+				<th>Description</th>
+				<th>Total Distance Travelled</th>
+				<th>Total Fuel Spent</th>
+				<th>Fuel Consumption</th>
+			</tr>
+			{{#each vehicles}}
+			<tr>
+				<td>{{description}}</td>
+				<td>{{total_distance}}</td>
+				<td>{{total_amount}}</td>
+				<td>{{fuel_consumption}}</td>
+			</tr>
+			{{/each}}
+		</table>
+
+	</div>
+
+
 </div>

@@ -7,7 +7,7 @@ import { engine } from 'express-handlebars';
 import "dotenv/config";
 
 import FuelConsumption from './fuel-consumption.js';
-import FuelConsumptionAPI from './fuel-consumption-api.js';
+// import FuelConsumptionAPI from './fuel-consumption-api.js';
 import fuelConsumptionRoutes from './routes/fuel-consumption-routes.js';
 
 const pgp = pgPromise();
@@ -20,7 +20,7 @@ const connectionOptions = {
 const db = pgp(connectionOptions);
 
 const fuelConsumption = FuelConsumption(db);
-const fuelConsumptionAPI = FuelConsumptionAPI(fuelConsumption);
+// const fuelConsumptionAPI = FuelConsumptionAPI(fuelConsumption);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -47,12 +47,14 @@ app.engine('hbs', engine({
 }));
 app.set('view engine', 'hbs');
 
-app.get('/api/vehicles', fuelConsumptionAPI.vehicles);
-app.get('/api/vehicle', fuelConsumptionAPI.vehicle);
-app.post('/api/vehicle', fuelConsumptionAPI.addVehicle);
-app.post('/api/refuel', fuelConsumptionAPI.refuel);
+// app.get('/api/vehicles', fuelConsumptionAPI.vehicles);
+// app.get('/api/vehicle', fuelConsumptionAPI.vehicle);
+// app.post('/api/vehicle', fuelConsumptionAPI.addVehicle);
+// app.post('/api/refuel', fuelConsumptionAPI.refuel);
 
 app.use('/', fuelConsumptionRoutes);
+
+export { fuelConsumption };
 
 app.listen(PORT, () => console.log(`App started on port: ${PORT}`));
 

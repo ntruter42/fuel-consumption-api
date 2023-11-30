@@ -1,0 +1,33 @@
+<div class="flex col middle xl-gap xl-pad view">
+
+	<h1>Add Vehicle</h1>
+
+	<form class="flex col gap l-pad" action="/add" method="post">
+		<label class="flex col middle" for="reg-number">
+			<span>Registration Number</span>
+			<input type="text" name="regNumber" id="regNumber">
+		</label>
+
+		<label class="flex col middle" for="reg-number">
+			<span>Vehicle Description</span>
+			<input type="text" name="description" id="description">
+		</label>
+
+		<button type="submit">Add Vehicle</button>
+	</form>
+
+	<table>
+		<tr>
+			<th>Registration</th>
+			<th>Description</th>
+		</tr>
+		{{#each vehicles}}
+		<tr>
+			<td>{{reg_number}}</td>
+			<td>{{description}}</td>
+		</tr>
+		{{/each}}
+	</table>
+
+
+</div>

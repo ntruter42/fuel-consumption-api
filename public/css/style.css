@@ -1,3 +1,8 @@
+:root {
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 *,
 *:before,
 *:after {
@@ -20,7 +25,120 @@ body {
 	width: 100%;
 }
 
+button,
+select,
+input {
+	border: 1px solid black;
+	border-radius: 0.25em;
+	padding: 0.25em 0.5em;
+	text-align: center;
+}
+
+button {
+	background: #415A77;
+	color: #e0e1dd;
+	box-shadow: 0 2px black;
+
+	width: fit-content;
+	margin: auto;
+}
+
+button:hover {
+	background: #1B263B;
+}
+
+button:active {
+	background: #0D1B2A;
+	box-shadow: 0 1px black;
+}
+
+form {
+	background: #e0e1dd;
+	border-radius: 1em;
+	width: 100%;
+	max-width: 720px;
+}
+
 .view {
 	width: 100%;
 	height: 100%;
+}
+
+.flex {
+	display: flex;
+}
+
+.col {
+	flex-direction: column;
+}
+
+.center {
+	justify-content: center;
+}
+
+.middle {
+	align-items: center;
+}
+
+.gap {
+	gap: 0.5em;
+}
+
+.l-gap {
+	gap: 1em;
+}
+
+.xl-gap {
+	gap: 2em;
+}
+
+.pad {
+	padding: 0.5em;
+}
+
+.l-pad {
+	padding: 1em;
+}
+
+.xl-pad {
+	padding: 2em;
+}
+
+/* CUSTOM TABLES */
+
+table {
+	border-collapse: collapse;
+}
+
+td,
+th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background: #FFF;
+}
+
+tr:hover {
+	background: #E0E1DD;
+}
+
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background: #415A77;
+	color: white;
+}
+
+/* CUSTOM INPUTS */
+
+input[name="regNumber"] {
+	width: 100%;
+	max-width: 15em;
+}
+
+input[name="description"] {
+	width: 100%;
 }
