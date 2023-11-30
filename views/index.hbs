@@ -12,6 +12,11 @@
 				<th>Total Fuel Spent</th>
 				<th>Fuel Consumption</th>
 			</tr>
+			{{#if empty}}
+			<tr>
+				<td class="c-text" colspan="4">There are no vehicles in the database</td>
+			</tr>
+			{{else}}
 			{{#each vehicles}}
 			<tr>
 				<td><a class="vehicle-selector" href="/refuel/{{id}}">{{description}}</a></td>
@@ -20,12 +25,17 @@
 				<td>{{#if fuel_consumption}}{{fuel_consumption}}{{else}}N/A{{/if}}</td>
 			</tr>
 			{{/each}}
+			{{/if}}
 		</table>
 
+		{{#if empty}}
+		{{else}}
 		<div class="message" style="display: block;">
 			Some information may not be available until at least 2 refuels
 		</div>
+		{{/if}}
 
+		<a class="message" style="display: block;" href="/add">Add Vehicle</a>
 	</div>
 
 

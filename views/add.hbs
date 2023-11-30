@@ -21,18 +21,25 @@
 		<button type="submit">Add Vehicle</button>
 	</form>
 
-	<table>
+	<table style="min-width: 80%;">
 		<tr>
 			<th>Registration</th>
 			<th>Description</th>
 		</tr>
+		{{#if empty}}
+		<tr>
+			<td class="c-text" colspan="2">There are no vehicles in the database</td>
+		</tr>
+		{{else}}
 		{{#each vehicles}}
 		<tr>
 			<td>{{reg_number}}</td>
 			<td>{{description}}</td>
 		</tr>
 		{{/each}}
+		{{/if}}
 	</table>
 
+	<a class="message" style="display: block; margin: 0;" href="/">View Consumption</a>
 
 </div>

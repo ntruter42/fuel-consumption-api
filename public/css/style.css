@@ -79,6 +79,10 @@ form {
 	height: 100%;
 }
 
+.c-text {
+	text-align: center;
+}
+
 .flex {
 	display: flex;
 }

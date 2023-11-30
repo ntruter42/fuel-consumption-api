@@ -4,7 +4,7 @@
 	<h1>{{title}}</h1>
 
 
-	<form class="flex col gap middle l-pad" action="/refuel/{{vehicleId}}" method="post">
+	<form class="flex col gap middle l-pad" action="/refuel/{{vehicle.id}}" method="post">
 
 		<div class="gap middle message" style="display: flex;">
 			<span>{{vehicle.description}}</span>
@@ -27,7 +27,7 @@
 		</label>
 
 		<label class="flex gap center" for="filled_up">
-			<input type="checkbox" name="filled_up" id="filled_up">
+			<input type="checkbox" name="filled_up" id="filled_up" checked>
 			<span>Filled Up</span>
 		</label>
 
@@ -38,5 +38,5 @@
 		<button type="submit">Refuel Vehicle</button>
 	</form>
 
-
+	<a class="message" style="display: block; margin: 0;" href="/">View Consumption</a>
 </div>

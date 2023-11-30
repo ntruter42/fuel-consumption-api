@@ -8,14 +8,19 @@ router.get('/', async (req, res) => {
 	const vehicles = await fuelConsumption.vehicles();
 	console.log('Vehicles:', vehicles);
 
+	const empty = vehicles.length <= 0;
+
 	res.render('index', {
 		title: 'Vehicle Consumption',
-		vehicles
+		vehicles,
+		empty
 	});
 });
 
 router.get('/add', async (req, res) => {
 	const vehicles = await fuelConsumption.vehicles();
+
+	const empty = vehicles.length <= 0;
 
 	const message = {
 		text: req.flash('message'),
@@ -25,6 +30,7 @@ router.get('/add', async (req, res) => {
 	res.render('add', {
 		title: 'Add Vehicle',
 		vehicles,
+		empty,
 		message
 	});
 });
@@ -41,6 +47,7 @@ router.post('/add', async (req, res) => {
 router.get('/refuel/:vehicleId', async (req, res) => {
 	const vehicleId = req.params.vehicleId;
 	const vehicle = await fuelConsumption.vehicle(vehicleId);
+	console.log(vehicle);
 
 	const message = {
 		text: req.flash('message'),
@@ -66,7 +73,7 @@ router.post('/refuel/:vehicleId', async (req, res) => {
 	req.flash('message', result.message);
 	req.flash('message-type', result.status);
 
-	res.redirect('/refuel');
+	res.redirect('/refuel/'+vehicleId);
 });
 
 export default router;
