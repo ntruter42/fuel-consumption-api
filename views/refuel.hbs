@@ -1,15 +1,21 @@
 <div class="flex col middle xl-gap xl-pad view">
 
 
-	<h1>{{title}}</h1>
-
+	<div class="flex gap middle">
+		<img class="icon" src="/assets/gas-pump.png" alt="">
+		<h1>{{title}}</h1>
+		<img class="icon" src="/assets/gas-pump.png" alt="">
+	</div>
 
 	<form class="flex col gap middle l-pad" action="/refuel/{{vehicle.id}}" method="post">
-
 		<div class="gap middle message" style="display: flex;">
 			<span>{{vehicle.description}}</span>
 			<span class="message" style="display: block; background: white;">{{vehicle.reg_number}}</span>
 		</div>
+
+		{{#if message.text}}
+		<div class="pad {{message.type}} message">{{message.text}}</div>
+		{{/if}}
 
 		<label class="flex col middle" for="liters">
 			<span>Litres Pumped</span>
@@ -30,10 +36,6 @@
 			<input type="checkbox" name="filled_up" id="filled_up" checked>
 			<span>Filled Up</span>
 		</label>
-
-		{{#if message.text}}
-		<div class="pad {{message.type}} message">{{message.text}}</div>
-		{{/if}}
 
 		<button type="submit">Refuel Vehicle</button>
 	</form>

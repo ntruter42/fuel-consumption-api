@@ -1,26 +1,36 @@
 <div class="flex col middle xl-gap xl-pad view">
 
+	<div class="flex gap middle">
+		<img class="icon" src="/assets/sport-car.png" alt="">
+		<h1>{{title}}</h1>
+		<img class="icon" src="/assets/sport-car.png" alt="">
+	</div>
 
-	<h1>{{title}}</h1>
-
+{{!-- Create form for new vehicle information --}}
 	<form class="flex col gap l-pad" action="/add" method="post">
+
+	{{!-- Message to display validation --}}
 		{{#if message.text}}
 		<div class="pad {{message.type}} message">{{message.text}}</div>
 		{{/if}}
 
+{{!-- Get Registration number from input --}}
 		<label class="flex col middle" for="reg-number">
 			<span>Registration Number</span>
 			<input type="text" name="regNumber" id="regNumber">
 		</label>
 
+{{!-- Get vehicle description --}}
 		<label class="flex col middle" for="reg-number">
 			<span>Vehicle Description</span>
 			<input type="text" name="description" id="description">
 		</label>
 
+{{!-- Create submit button --}}
 		<button type="submit">Add Vehicle</button>
 	</form>
 
+{{!-- Display table of added vehicles --}}
 	<table style="min-width: 80%;">
 		<tr>
 			<th>Registration</th>
@@ -34,7 +44,7 @@
 		{{#each vehicles}}
 		<tr>
 			<td>{{reg_number}}</td>
-			<td>{{description}}</td>
+			<td><a class="vehicle-selector" href="/refuel/{{id}}">{{description}}</a></td>
 		</tr>
 		{{/each}}
 		{{/if}}
