@@ -1,5 +1,7 @@
 # Fuel consumption API
 
+[![Unit Tests](https://github.com/ntruter42/fuel-consumption-api/actions/workflows/node.js.yml/badge.svg)](https://github.com/ntruter42/fuel-consumption-api/actions/workflows/node.js.yml)
+
 The fuel consumption API keeps track of vehicle fuel usage.
 
 For each vehicle refuel it stores: 
