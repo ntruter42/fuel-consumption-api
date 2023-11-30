@@ -1,0 +1,42 @@
+<div class="flex col middle xl-gap xl-pad view">
+
+
+	<h1>{{title}}</h1>
+
+
+	<form class="flex col gap middle l-pad" action="/refuel/{{vehicleId}}" method="post">
+
+		<div class="gap middle message" style="display: flex;">
+			<span>{{vehicle.description}}</span>
+			<span class="message" style="display: block; background: white;">{{vehicle.reg_number}}</span>
+		</div>
+
+		<label class="flex col middle" for="liters">
+			<span>Litres Pumped</span>
+			<input type="number" name="liters" id="liters">
+		</label>
+
+		<label class="flex col middle" for="amount">
+			<span>Amount Paid</span>
+			<input type="number" name="amount" id="amount">
+		</label>
+
+		<label class="flex col middle" for="odometer">
+			<span>Odometer Reading</span>
+			<input type="number" name="odometer" id="odometer">
+		</label>
+
+		<label class="flex gap center" for="filled_up">
+			<input type="checkbox" name="filled_up" id="filled_up">
+			<span>Filled Up</span>
+		</label>
+
+		{{#if message.text}}
+		<div class="pad {{message.type}} message">{{message.text}}</div>
+		{{/if}}
+
+		<button type="submit">Refuel Vehicle</button>
+	</form>
+
+
+</div>

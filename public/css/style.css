@@ -1,4 +1,19 @@
 :root {
+	--primary-light: #FFFFFF;
+	--secondary-light: #E0E1DD;
+	--tertiary-light: #778DA9;
+
+	--primary-dark: #415A77;
+	--secondary-dark: #1B263B;
+	--tertiary-dark: #0D1B2A;
+
+	--error-bg: #FDD;
+	--error-fg: #C04;
+	--warning-bg: #FED;
+	--warning-fg: #A60;
+	--success-bg: #EFE;
+	--success-fg: #284;
+
 	font-size: 20px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -35,8 +50,8 @@ input {
 }
 
 button {
-	background: #415A77;
-	color: #e0e1dd;
+	background: var(--primary-dark);
+	color: white;
 	box-shadow: 0 2px black;
 
 	width: fit-content;
@@ -44,16 +59,16 @@ button {
 }
 
 button:hover {
-	background: #1B263B;
+	background: var(--secondary-dark);
 }
 
 button:active {
-	background: #0D1B2A;
+	background: var(--primary-dark);
 	box-shadow: 0 1px black;
 }
 
 form {
-	background: #e0e1dd;
+	background: var(--secondary-light);
 	border-radius: 1em;
 	width: 100%;
 	max-width: 720px;
@@ -112,24 +127,29 @@ table {
 
 td,
 th {
-	border: 1px solid #ddd;
+	border: 1px solid var(--secondary-light);
 	padding: 8px;
 }
 
-tr:nth-child(even) {
-	background: #FFF;
+tr:nth-child(even) td,
+tr:nth-child(even) td {
+	border: 1px solid var(--primary-light);
 }
 
-tr:hover {
-	background: #E0E1DD;
+tr:nth-child(even) {
+	background: var(--secondary-light);
 }
 
 th {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;
-	background: #415A77;
+	background: var(--primary-dark);
 	color: white;
+}
+
+.vehicle-selector:hover {
+	text-shadow: 0 0 1px black;
 }
 
 /* CUSTOM INPUTS */
@@ -141,4 +161,37 @@ input[name="regNumber"] {
 
 input[name="description"] {
 	width: 100%;
+}
+
+/* CUSTOM MESSAGES */
+
+.message {
+	border-radius: 0.5em;
+	box-shadow: 0 0 0 1px;
+
+	height: fit-content;
+	width: fit-content;
+	max-width: 100%;
+	padding: 0.5em 1em;
+	text-align: center;
+	margin: auto;
+}
+
+
+.message.error {
+	background: var(--error-bg);
+	color: var(--error-fg);
+	box-shadow: 0 0 0 1px var(--error-fg);
+}
+
+.message.success {
+	background: var(--success-bg);
+	color: var(--success-fg);
+	box-shadow: 0 0 0 1px var(--success-fg);
+}
+
+/* FUNCTIONALITY */
+
+.hidden {
+	display: none;
 }

@@ -1,8 +1,13 @@
 <div class="flex col middle xl-gap xl-pad view">
 
-	<h1>Add Vehicle</h1>
+
+	<h1>{{title}}</h1>
 
 	<form class="flex col gap l-pad" action="/add" method="post">
+		{{#if message.text}}
+		<div class="pad {{message.type}} message">{{message.text}}</div>
+		{{/if}}
+
 		<label class="flex col middle" for="reg-number">
 			<span>Registration Number</span>
 			<input type="text" name="regNumber" id="regNumber">

@@ -1,9 +1,9 @@
 <div class="flex col middle xl-gap xl-pad view">
 
 
-	<div class="flex col gap middle">
+	<div class="flex col xl-gap middle">
 
-		<h1>Vehicle Consumption</h1>
+		<h1>{{title}}</h1>
 
 		<table>
 			<tr>
@@ -14,13 +14,17 @@
 			</tr>
 			{{#each vehicles}}
 			<tr>
-				<td>{{description}}</td>
-				<td>{{total_distance}}</td>
-				<td>{{total_amount}}</td>
-				<td>{{fuel_consumption}}</td>
+				<td><a class="vehicle-selector" href="/refuel/{{id}}">{{description}}</a></td>
+				<td>{{#if total_distance}}{{total_distance}}{{else}}N/A{{/if}}</td>
+				<td>{{#if total_amount}}{{total_amount}}{{else}}N/A{{/if}}</td>
+				<td>{{#if fuel_consumption}}{{fuel_consumption}}{{else}}N/A{{/if}}</td>
 			</tr>
 			{{/each}}
 		</table>
+
+		<div class="message" style="display: block;">
+			Some information may not be available until at least 2 refuels
+		</div>
 
 	</div>
 
